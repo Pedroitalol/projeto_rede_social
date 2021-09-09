@@ -1,2 +1,2 @@
 # projeto_rede_social
-Uma rede social simples usando PHP.
+Projeto de uma rede social simples usando PHP.
