@@ -26,10 +26,11 @@
         <div class="form_login">
             <form method="post">
                 <p>E-mail:</p>
-                <input type="text" name="login" placeholder="E-mail...">
+                <input type="text" name="email" placeholder="E-mail...">
                 <p>Senha:</p>
                 <input type="password" name="senha" placeholder="Senha...">
                 <input type="submit" name="acao" value="Entrar!">
+                <input type="hidden" name="login" value="login">
             </form>
             <p><a href="<?php echo INCLUDE_PATH ?>registrar">Criar conta?</a></p>
         </div><!--form_login-->
