@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Azeret Mono', monospace;
+}
+
+html, body{
+    height: 100%;
+    background: #f1f1f1;
+}
+
+section.feed_container{
+    display: flex;
+    height: 100%;
+}
+
+.sidebar{
+    padding: 20px 60px;
+    width: 20%;
+    background-color: #EAEAF4;
+    
+}
+
+.sidebar .sidebar_logo img{
+    max-width: 80px;
+    
+}
+
+.feed{
+    display: flex;
+    padding: 50px;
+    width: 80%;
+    overflow-y: auto;
+}
+
+.sidebar_menu{
+    display: inline-block;
+    text-align: left;
+}
+
+.sidebar_menu h3{
+    color: black;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.sidebar_menu a{
+    display: block;
+    margin-bottom: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.sidebar_menu a:hover{
+    font-weight: bold;
+    color: gray;
+}
+
+.feed_posts{
+    width: 80%;
+
+}
+
+.feed_one_post{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.feed_one_post_author{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.feed_one_post_author img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.feed_one_post_author h3{
+    font-size: 19px;
+    width: 100%;
+}
+
+.feed_one_post_author p{
+    font-size: 15px;
+    opacity: 0.5;
+    margin-top: 2px;
+}
+
+.img_author{
+    padding: 0 10px;
+}
+
+.feed_one_post_content{
+    margin: 10px 0;
+
+}
+
+.feed_one_post_content p{
+    color: #555555;
+    font-size: 15px;
+}
+
+.feed_one_post_content img{
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.friends_feed{
+    width: 20%;
+    background-color: white;
+    padding-top: 30px;
+    margin-left: 20px;
+    border-radius: 10px;
+    color: #454545;
+    /* font-size: small; */
+    /* text-align: center; */
+}
+
+.friends_one_request{
+    display: flex;
+    margin-bottom: 20px;
+    padding: 2px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.friends_one_request img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.friends_one_request_info a{
+    color: #069;
+}
+
+.friends_one_request_info h4{
+    font-size: 15px;
+}
+
+.friends_one_request_info p{
+    font-size: 13px;
+}
