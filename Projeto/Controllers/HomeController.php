@@ -5,7 +5,13 @@
     {
         public function index(){
 
-            if(isset($_SESSION['login'])){
+            if(isset($_GET["loggout"])){
+                session_unset();
+                session_destroy();
+                \Projeto\Utilidades::redirect(INCLUDE_PATH);
+            }
+
+            if(isset($_SESSION["login"])){
                 // Mostrar página do usuário
                 \Projeto\Views\MainView::render("home");
             }else{
@@ -27,6 +33,7 @@
                         if(\Projeto\Bcrypt::check($senha, $senhaBanco)){
                             // Vai para a página do usuário
                             $_SESSION["login"] = $dados["email"];
+                            $_SESSION["nome"] = explode(" ", $dados["nome"])[0];
                             \Projeto\Utilidades::redirect(INCLUDE_PATH);
                         }else{
                             \Projeto\Utilidades::alerta("Senha incorreta");
