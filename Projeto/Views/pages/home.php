@@ -23,11 +23,11 @@
             <div class="sidebar_menu">
                 <h3>Menu</h3>
                 <nav>
-                    <a href="#"><i class="fas fa-pager"></i> Página inicial</a>
+                    <a href="home"><i class="fas fa-pager"></i> Página inicial</a>
                     <a href="#"><i class="far fa-address-card"></i> Perfil</a>
-                    <a href="#"> <i class="fas fa-user-friends"></i> Amigos</a>
+                    <a href="comunidade"> <i class="fas fa-user-friends"></i> Amigos</a>
 
-                    <a href="?loggout"> <i class="fas fa-sign-out-alt"></i> Sair da conta</a>
+                    <a href="<?php echo INCLUDE_PATH ?>?loggout"> <i class="fas fa-sign-out-alt"></i> Sair da conta</a>
                 </nav>
             </div><!-- sidebar_menu -->
         </div><!-- sidebar -->
