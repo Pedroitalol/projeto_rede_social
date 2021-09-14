@@ -33,6 +33,7 @@
                         if(\Projeto\Bcrypt::check($senha, $senhaBanco)){
                             // Vai para a página do usuário
                             $_SESSION["login"] = $dados["email"];
+                            $_SESSION["id"] = $dados["id"];
                             $_SESSION["nome"] = explode(" ", $dados["nome"])[0];
                             \Projeto\Utilidades::redirect(INCLUDE_PATH);
                         }else{

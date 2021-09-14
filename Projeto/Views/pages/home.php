@@ -17,7 +17,7 @@
     <section class="feed_container">
         <div class="sidebar">
             <div class="sidebar_logo">
-                <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/logo1.png" alt="Logo da rede social" width="50%" height="50%">
+                <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/logo1.png" alt="Logo da rede social" >
             </div><!-- sidebar_logo -->
 
             <div class="sidebar_menu">
