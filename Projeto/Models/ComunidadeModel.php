@@ -30,6 +30,31 @@
                 return false;
             }
         }
+
+        public static function verificarAmizade($idPara){
+            $pdo = \Projeto\MySql::connect();
+            $verificaAmizade = $pdo->prepare("SELECT * FROM amizades WHERE (enviou = ? AND recebeu = ? AND 
+                status = ?) OR (enviou = ? AND recebeu = ? AND status = ?)");
+            $verificaAmizade->execute(array($_SESSION["id"], $idPara, 0, $idPara, $_SESSION["id"], 0));
+            if($verificaAmizade->rowCount() == 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public static function verificarAmizadeConfirmada($idPara){
+            $pdo = \Projeto\MySql::connect();
+            $verificaAmizade = $pdo->prepare("SELECT * FROM amizades WHERE (enviou = ? AND recebeu = ? AND 
+                status = ?) OR (enviou = ? AND recebeu = ? AND status = ?)");
+            $verificaAmizade->execute(array($_SESSION["id"], $idPara, 1, $idPara, $_SESSION["id"], 1));
+            if($verificaAmizade->rowCount() == 1){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
     }
 
 ?>

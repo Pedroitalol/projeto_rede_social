@@ -23,9 +23,9 @@
             <div class="sidebar_menu">
                 <h3>Menu</h3>
                 <nav>
-                    <a href="home"><i class="fas fa-pager"></i> Página inicial</a>
+                    <a href="<?php echo INCLUDE_PATH ?>"><i class="fas fa-pager"></i> Página inicial</a>
                     <a href="#"><i class="far fa-address-card"></i> Perfil</a>
-                    <a href="comunidade"> <i class="fas fa-user-friends"></i> Amigos</a>
+                    <a href="<?php echo INCLUDE_PATH ?>comunidade"> <i class="fas fa-user-friends"></i> Amigos</a>
 
                     <a href="<?php echo INCLUDE_PATH ?>?loggout"> <i class="fas fa-sign-out-alt"></i> Sair da conta</a>
                 </nav>
@@ -75,30 +75,25 @@
             
             <div class="friends_feed">
                 <h3>Solicitações de amizade:</h3>
+
+                <?php 
+                    $listaAmizades = \Projeto\Models\UsuariosModel::listarAmizadesPendentes();
+                    foreach ($listaAmizades as $key => $value) {
+                        # code...
+                        $usuarioInfo = \Projeto\Models\UsuariosModel::getUsuarioById($value["enviou"]);
+                ?>
                 
                 <div class="friends_one_request">
                     <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/foto_perfil.jpg" alt="Foto de perfil" >
                     <div class="friends_one_request_info">
-                        <h4>Julio, o Grande</h4>
-                        <p> <a href="#">Aceitar</a>|<a href="#">Recusar</a></p>
+                        <h4><?php echo $usuarioInfo["nome"] ?></h4>
+                        <p> <a href="<?php echo INCLUDE_PATH ?>?aceitarAmizade=<?php
+                            echo $usuarioInfo["id"] ?>">Aceitar</a>|<a href="<?php echo INCLUDE_PATH
+                            ?>?recusarAmizade=<?php echo $usuarioInfo["id"] ?>">Recusar</a></p>
                     </div><!-- friends_one_request_info -->
                 </div><!-- friends_one_request -->
 
-                <div class="friends_one_request">
-                    <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/foto_perfil1.jpg" alt="Foto de perfil" >
-                    <div class="friends_one_request_info">
-                        <h4>Valentina do Diabo</h4>
-                        <p> <a href="#">Aceitar</a>|<a href="#">Recusar</a></p>
-                    </div><!-- friends_one_request_info -->
-                </div><!-- friends_one_request -->
-
-                <div class="friends_one_request">
-                    <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/foto_perfil2.jpg" alt="Foto de perfil" >
-                    <div class="friends_one_request_info">
-                        <h4>Jeremias, na gloria do senhor</h4>
-                        <p> <a href="#">Aceitar</a>|<a href="#">Recusar</a></p>
-                    </div><!-- friends_one_request_info -->
-                </div><!-- friends_one_request -->
+                <?php } ?>
             </div><!-- friends_feed -->
         </div><!-- feed -->
     </section><!-- feed_container -->

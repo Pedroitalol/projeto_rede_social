@@ -13,6 +13,25 @@
 
             if(isset($_SESSION["login"])){
                 // Mostrar página do usuário
+
+                // Trabalhando com os pedidos de amizade: recusarAmizade5
+                if(isset($_GET["recusarAmizade"])){
+                    $idEnviou = (int) $_GET["recusarAmizade"];
+                    \Projeto\Models\UsuariosModel::atualizarPedidoAmizade($idEnviou, 0);
+                    \Projeto\Utilidades::alerta("Amizade recusada com sucesso!");
+                    \Projeto\Utilidades::redirect(INCLUDE_PATH);
+                }else if(isset($_GET["aceitarAmizade"])){
+                    $idEnviou = (int) $_GET["aceitarAmizade"];
+                    if(\Projeto\Models\UsuariosModel::atualizarPedidoAmizade($idEnviou, 1)){
+                        \Projeto\Utilidades::alerta("Amizade aceita com sucesso!");
+                        \Projeto\Utilidades::redirect(INCLUDE_PATH);
+                    }else{
+                        \Projeto\Utilidades::alerta("Ocorreu um erro!");
+                        \Projeto\Utilidades::redirect(INCLUDE_PATH);
+                    }
+                    
+                }
+
                 \Projeto\Views\MainView::render("home");
             }else{
                 // Mostrar página de login

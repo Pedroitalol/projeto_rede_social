@@ -25,9 +25,9 @@
             <div class="sidebar_menu">
                 <h3>Menu</h3>
                 <nav>
-                    <a href="home"><i class="fas fa-pager"></i> Página inicial</a>
+                    <a href="<?php echo INCLUDE_PATH ?>"><i class="fas fa-pager"></i> Página inicial</a>
                     <a href="#"><i class="far fa-address-card"></i> Perfil</a>
-                    <a href="comunidade"> <i class="fas fa-user-friends"></i> Amigos</a>
+                    <a href="<?php echo INCLUDE_PATH ?>comunidade"> <i class="fas fa-user-friends"></i> Amigos</a>
 
                     <a href="<?php echo INCLUDE_PATH ?>?loggout"> <i class="fas fa-sign-out-alt"></i> Sair da conta</a>
                 </nav>
@@ -120,7 +120,8 @@
 							$comunidade = \Projeto\Models\ComunidadeModel::listarComunidade();
 							$i = 0;
 							foreach($comunidade as $key => $value){
-								if($value["id"] == $_SESSION["id"]){
+								// Caso o usuário for o mesmo logado ou se for amigo desse
+								if($value["id"] == $_SESSION["id"] || \Projeto\Models\ComunidadeModel::verificarAmizadeConfirmada($value["id"])){
 									continue;
 								}
 						?>
@@ -134,7 +135,7 @@
 								<p><?php echo $value["email"]; ?></p>
 								<div class="btn_solicitar_amizade">
 									<?php 
-										if(\Projeto\Models\ComunidadeModel::solicitarAmizade($value["id"])){
+										if(!(\Projeto\Models\ComunidadeModel::verificarAmizade($value["id"]))){
 									?>
 									<a href="<?php echo INCLUDE_PATH ?>comunidade?solicitarAmizade=<?php echo $value["id"]; ?>">
 									Solicitar Amizade</a>
