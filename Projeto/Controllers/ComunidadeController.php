@@ -8,7 +8,7 @@
                 if(isset($_GET["solicitarAmizade"])){
                     $idPara = (int) $_GET["solicitarAmizade"];
                     if(\Projeto\Models\ComunidadeModel::solicitarAmizade($idPara)){
-                        \Projeto\Utilidades::alerta("Deu bom");
+                        \Projeto\Utilidades::alerta("Amizade enviada com sucesso!");
                     }else{
                         \Projeto\Utilidades::alerta("Ocorreu um erro ao solicitar a amizade!");
                     }

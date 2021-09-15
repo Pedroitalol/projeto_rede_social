@@ -55,6 +55,30 @@
             }
 
         }
+
+        public static function listarAmigos(){
+            $pdo = \Projeto\MySql::connect();
+
+            $amizades = $pdo->prepare("SELECT * FROM amizades WHERE (enviou = ? OR recebeu = ?) AND status = ?");
+            $amizades->execute(array($_SESSION["id"], $_SESSION["id"], 1));
+
+            $amizades = $amizades->fetchAll();
+            $amigosConfirmados = array();
+            foreach ($amizades as $key => $value) {
+                if($value["enviou"] == $_SESSION["id"]){
+                    $amigosConfirmados[] = $value["recebeu"];
+                }else{
+                    $amigosConfirmados[] = $value["enviou"];
+                }
+            }
+
+            $listaAmigos = array();
+
+            foreach ($amigosConfirmados as $key => $value) {
+                $listaAmigos[] = \Projeto\Models\UsuariosModel::getUsuarioById($value); 
+            }
+            return $listaAmigos;
+        }
     }
 
 ?>

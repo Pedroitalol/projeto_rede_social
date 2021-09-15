@@ -38,77 +38,25 @@
 			<div class="comunidade">
 				<div class="container_comunidade">
 					<h4>Amigos</h4>
+					
 					<div class="container_comunidade_wraper">
+						<?php
+							$listaAmigos = \Projeto\Models\ComunidadeModel::listarAmigos();
+
+							foreach ($listaAmigos as $key => $value) {
+								
+						?>
 						<div class="container_comunidade_single">
 							<div class="img_comunidade_user_single">
 								<img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" />
 							</div><!-- img_comunidade_user_single -->
-
 							<div class="info_comunidade_user_single">
-								<h2>Sem Criatividade</h2>
-								<p>semC@naotem.com</p>
-							</div><!-- info_comunidade_user_single -->
-						</div><!-- container_comunidade_single -->
-						
-						<div class="container_comunidade_single">
-							<div class="img_comunidade_user_single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" />
-							</div><!-- img_comunidade_user_single -->
-
-							<div class="info_comunidade_user_single">
-								<h2>Sem Criatividade</h2>
-								<p>semC@naotem.com</p>
+								<h2><?php echo $value["nome"]; ?></h2>
+								<p><?php echo $value["email"]; ?></p>
 							</div><!-- info_comunidade_user_single -->
 
 						</div><!-- container_comunidade_single -->
-
-						<div class="container_comunidade_single">
-							<div class="img_comunidade_user_single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" />
-							</div><!-- img_comunidade_user_single -->
-							
-							<div class="info_comunidade_user_single">
-								<h2>Sem Criatividade</h2>
-								<p>semC@naotem.com</p>
-							</div><!-- info_comunidade_user_single -->
-
-						</div><!-- container_comunidade_single -->
-
-						<div class="container_comunidade_single">
-							<div class="img_comunidade_user_single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" />
-							</div><!-- img_comunidade_user_single -->
-							
-							<div class="info_comunidade_user_single">
-								<h2>Sem Criatividade</h2>
-								<p>semC@naotem.com</p>
-							</div><!-- info_comunidade_user_single -->
-
-						</div><!-- container_comunidade_single -->
-
-						<div class="container_comunidade_single">
-							<div class="img_comunidade_user_single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" />
-							</div><!-- img_comunidade_user_single -->
-							
-							<div class="info_comunidade_user_single">
-								<h2>Sem Criatividade</h2>
-								<p>semC@naotem.com</p>
-							</div><!-- info_comunidade_user_single -->
-
-						</div><!-- container_comunidade_single -->
-
-						<div class="container_comunidade_single">
-							<div class="img_comunidade_user_single">
-								<img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" />
-							</div><!-- img_comunidade_user_single -->
-							
-							<div class="info_comunidade_user_single">
-								<h2>Sem Criatividade</h2>
-								<p>semC@naotem.com</p>
-							</div><!-- info_comunidade_user_single -->
-
-						</div><!-- container_comunidade_single -->
+						<?php } ?>
 					</div><!-- container_comunidade_wraper -->
 				</div><!-- container_comunidade -->
 				<br/>
