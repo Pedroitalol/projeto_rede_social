@@ -14,7 +14,7 @@
             if(isset($_SESSION["login"])){
                 // Mostrar página do usuário
 
-                // Trabalhando com os pedidos de amizade: recusarAmizade5
+                // Trabalhando com os pedidos de amizade: 
                 if(isset($_GET["recusarAmizade"])){
                     $idEnviou = (int) $_GET["recusarAmizade"];
                     \Projeto\Models\UsuariosModel::atualizarPedidoAmizade($idEnviou, 0);
@@ -30,6 +30,17 @@
                         \Projeto\Utilidades::redirect(INCLUDE_PATH);
                     }
                     
+                }
+
+                // Trabalhando com postagens:
+                if(isset($_POST["post_feed"])){
+                    if($_POST["post_content"] == ""){
+                        \Projeto\Utilidades::alerta("Não aperte postar sem ter o que postar!");
+                        \Projeto\Utilidades::redirect(INCLUDE_PATH);
+                    }
+                    \Projeto\Models\HomeModel::postFeed($_POST["post_content"]);
+                    \Projeto\Utilidades::alerta("Obrigado por postar!");
+                    \Projeto\Utilidades::redirect(INCLUDE_PATH);
                 }
 
                 \Projeto\Views\MainView::render("home");

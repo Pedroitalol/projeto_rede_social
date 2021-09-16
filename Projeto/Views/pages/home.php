@@ -34,6 +34,14 @@
         
         <div class="feed">
             <div class="feed_posts">
+                <div class="feed_forms">
+                    <h3>O que você está pensando?</h3>
+                    <form method="post">
+                        <textarea required="" name="post_content" placeholder="Digita aí..."></textarea>
+                        <input type="hidden" name="post_feed">
+                        <input type="submit" name="acao" value="Postar.">
+                    </form>
+                </div><!-- feed_forms -->
                 <div class="feed_one_post">
                     <div class="feed_one_post_author">
                         <div class="img_author">
