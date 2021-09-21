@@ -42,42 +42,40 @@
                         <input type="submit" name="acao" value="Postar.">
                     </form>
                 </div><!-- feed_forms -->
+
+                <?php
+                    $posts = \Projeto\Models\HomeModel::retrieveFriendsPosts();
+                    foreach ($posts as $key => $value) {
+                    
+                ?>
                 <div class="feed_one_post">
                     <div class="feed_one_post_author">
                         <div class="img_author">
                             <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/foto_perfil_principal.jpeg" alt="Foto de perfil" >
-                        </div><!-- img_authot -->
-                        
-                        <div class="info_authot">
-                            <h3>Joãozinho Pegador</h3>
-                            <p>4:20 10/12/2019</p>
-                        </div><!-- info_authot -->
-                        
+                        </div><!-- img_author -->
+                        <div class="info_author">
+                            <?php 
+                                if(isset($value["me"])){
+                            ?>
+                                <h3><?php echo $_SESSION["nome"]; ?></h3>
+                            <?php 
+                                }else{
+                            ?>
+                                <h3><?php echo $value["usuario"]; ?></h3>
+                            <?php 
+                                }
+                            ?>
+                            <p><?php echo date("d/m/Y H:i:s", strtotime($value["data"])) ?></p>
+                        </div><!-- info_author -->
                     </div><!-- feed_one_post_author -->
-
                     <div class="feed_one_post_content">
-                        <p>Obrigado Deus por mais um ano de vida! Que venha mais cachaça, que eu aguento!</p>
-                        
-                    </div><!-- feed_one_post_author -->
-                </div><!-- feed_one_post -->
-                <div class="feed_one_post">
-                    <div class="feed_one_post_author">
-                        <div class="img_author">
-                            <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/foto_perfil_principal.jpeg" alt="Foto de perfil" >
-                        </div><!-- img_authot -->
-                        <div class="info_authot">
-                            <h3>Juliana bomde</h3>
-                            <p>2:01 12/12/2019</p>
-                        </div>
-                        
-                    </div><!-- feed_one_post_author -->
-
-                    <div class="feed_one_post_content">
-                        <p>Cortei o cabelo, gostaram?</p>
-                        <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/feed.jpg" alt="Foto do feed">
+                        <?php echo $value["conteudo"] ?>
                     </div>
                 </div><!-- feed_one_post -->
-                
+                <?php
+                    }
+                ?>
+
             </div><!-- feed_posts -->
             
             
