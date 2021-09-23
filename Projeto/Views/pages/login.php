@@ -13,9 +13,6 @@
 </head>
 <body>
     
-    <div class="sidebar">
-        
-    </div> <!--sidebar-->
     
     <div class="form_login_container">
         <div class="logo_login">

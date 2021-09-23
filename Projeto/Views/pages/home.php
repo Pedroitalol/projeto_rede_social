@@ -24,9 +24,8 @@
                 <h3>Menu</h3>
                 <nav>
                     <a href="<?php echo INCLUDE_PATH ?>"><i class="fas fa-pager"></i> Página inicial</a>
-                    <a href="#"><i class="far fa-address-card"></i> Perfil</a>
+                    <a href="<?php echo INCLUDE_PATH ?>perfil"><i class="far fa-address-card"></i> Perfil</a>
                     <a href="<?php echo INCLUDE_PATH ?>comunidade"> <i class="fas fa-user-friends"></i> Amigos</a>
-
                     <a href="<?php echo INCLUDE_PATH ?>?loggout"> <i class="fas fa-sign-out-alt"></i> Sair da conta</a>
                 </nav>
             </div><!-- sidebar_menu -->
@@ -51,7 +50,22 @@
                 <div class="feed_one_post">
                     <div class="feed_one_post_author">
                         <div class="img_author">
-                            <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/foto_perfil_principal.jpeg" alt="Foto de perfil" >
+                            <?php
+                                if(!isset($value["me"]) && $value["img"] == ""){
+                            ?>
+                            <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" alt="Foto de perfil" >
+                            <?php }else if(!isset($value["me"])){ ?>
+                            <img src="<?php echo INCLUDE_PATH_STATIC ?>img/<?php echo $value['img'] ?>" alt="Foto de perfil" >
+                            <?php } ?>
+
+                            <?php
+                                if(isset($value["me"]) && $_SESSION["img"] == ""){
+                            ?>
+                            <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" alt="Foto de perfil" >
+                            <?php }else if(isset($value["me"])){ ?>
+                            <img src="<?php echo INCLUDE_PATH_STATIC ?>img/<?php echo $_SESSION['img'] ?>" alt="Foto de perfil" >
+                            <?php } ?>
+
                         </div><!-- img_author -->
                         <div class="info_author">
                             <?php 

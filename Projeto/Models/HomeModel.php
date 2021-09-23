@@ -42,11 +42,9 @@
 
 			foreach ($amigosConfirmados as $key => $value) {
 				$listaAmigos[$key]['id'] = \Projeto\Models\UsuariosModel::getUsuarioById($value)['id'];
-
 				$listaAmigos[$key]['nome'] = \Projeto\Models\UsuariosModel::getUsuarioById($value)['nome'];
-
 				$listaAmigos[$key]['email'] = \Projeto\Models\UsuariosModel::getUsuarioById($value)['email'];
-
+				$listaAmigos[$key]['img'] = \Projeto\Models\UsuariosModel::getUsuarioById($value)['img'];
 				$listaAmigos[$key]['ultimo_post'] = \Projeto\Models\UsuariosModel::getUsuarioById($value)['ultimo_post'];
 			}
 			usort($listaAmigos,function($a,$b){
@@ -65,13 +63,10 @@
 				$ultimoPost->execute(array($value['id']));
 
 				if($ultimoPost->rowCount() >= 1){
-
 					$ultimoPost = $ultimoPost->fetch();
-
 					$posts[$key]['usuario'] = $value['nome'];
-
+					$posts[$key]['img'] = $value['img'];
 					$posts[$key]['data'] = $ultimoPost['data'];
-
 					$posts[$key]['conteudo'] = $ultimoPost['conteudo'];
 				}
 			}

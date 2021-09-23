@@ -65,6 +65,7 @@
                             $_SESSION["login"] = $dados["email"];
                             $_SESSION["id"] = $dados["id"];
                             $_SESSION["nome"] = explode(" ", $dados["nome"])[0];
+                            $_SESSION["img"] = $dados["img"];
                             \Projeto\Utilidades::redirect(INCLUDE_PATH);
                         }else{
                             \Projeto\Utilidades::alerta("Senha incorreta");

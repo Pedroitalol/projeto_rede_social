@@ -26,7 +26,7 @@
                 <h3>Menu</h3>
                 <nav>
                     <a href="<?php echo INCLUDE_PATH ?>"><i class="fas fa-pager"></i> Página inicial</a>
-                    <a href="#"><i class="far fa-address-card"></i> Perfil</a>
+                    <a href="<?php echo INCLUDE_PATH ?>perfil"><i class="far fa-address-card"></i> Perfil</a>
                     <a href="<?php echo INCLUDE_PATH ?>comunidade"> <i class="fas fa-user-friends"></i> Amigos</a>
 
                     <a href="<?php echo INCLUDE_PATH ?>?loggout"> <i class="fas fa-sign-out-alt"></i> Sair da conta</a>

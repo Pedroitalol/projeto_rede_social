@@ -12,11 +12,6 @@
 
 </head>
 <body>
-    
-    <div class="sidebar">
-        
-    </div> <!--sidebar-->
-    
     <div class="form_login_container">
         <div class="logo_login">
             <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/logo1.png" alt="Logo da rede social" width="30%" height="15%">  
