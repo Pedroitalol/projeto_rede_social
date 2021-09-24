@@ -19,7 +19,7 @@
                     \Projeto\Utilidades::redirect(INCLUDE_PATH."registrar");
 
                 }else if(strcasecmp($senha, $confirmar_senha)){
-                    \Projeto\Utilidades::alerta("A senha está errada!");
+                    \Projeto\Utilidades::alerta("A confirmação da senha está errada!");
                     \Projeto\Utilidades::redirect(INCLUDE_PATH."registrar");
 
                 }else if(\Projeto\Models\UsuariosModel::emailExists($email)){

@@ -39,8 +39,8 @@ section.comunidade_container{
 }
 
 .feed_comunidade{
-    display: flex;
-    padding: 50px;
+    /* display: flex; */
+    padding: 40px;
     width: 80%;
     overflow-y: visible;
     overflow-x: auto;

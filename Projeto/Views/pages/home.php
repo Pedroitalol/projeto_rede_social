@@ -55,7 +55,7 @@
                             ?>
                             <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" alt="Foto de perfil" >
                             <?php }else if(!isset($value["me"])){ ?>
-                            <img src="<?php echo INCLUDE_PATH_STATIC ?>img/<?php echo $value['img'] ?>" alt="Foto de perfil" >
+                            <img src="<?php echo INCLUDE_PATH ?>uploads/<?php echo $value['img'] ?>" alt="Foto de perfil" >
                             <?php } ?>
 
                             <?php
@@ -63,7 +63,7 @@
                             ?>
                             <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" alt="Foto de perfil" >
                             <?php }else if(isset($value["me"])){ ?>
-                            <img src="<?php echo INCLUDE_PATH_STATIC ?>img/<?php echo $_SESSION['img'] ?>" alt="Foto de perfil" >
+                            <img src="<?php echo INCLUDE_PATH ?>uploads/<?php echo $_SESSION['img'] ?>" alt="Foto de perfil" >
                             <?php } ?>
 
                         </div><!-- img_author -->

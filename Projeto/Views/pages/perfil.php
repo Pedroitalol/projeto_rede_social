@@ -39,16 +39,17 @@
                     if(isset($_SESSION["img"]) && $_SESSION["img"] == ""){
                         echo '<img src="'.INCLUDE_PATH_STATIC.'imgs/avatar.jpg" />';
                     }else{
-                        echo '<img src="'.INCLUDE_PATH_STATIC .'imgs/'.$_SESSION["img"].'" />';
+                        echo '<img src="'.INCLUDE_PATH.'uploads/'.$_SESSION["img"].'" />';
                     }
                 ?>
                 <br>
-                <form >
-                    <input type="text" name="nome" value="<?php echo $_SESSION["nome"] ?>">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="text" name="nome" value="<?php echo \Projeto\Models\UsuariosModel::getUsuarioById($_SESSION["id"])["nome"] ?>">
                     <input type="password" name="senha" placeholder="Sua nova senha">
-                    <input type="password" name="senha" placeholder="Confime a senha">
-                    <input type="file" name="file" placeholder="Confime a senha">
+                    <input type="password" name="confirmar_senha" placeholder="Confime a senha">
+                    <input type="file" name="file" placeholder="">
                     <input type="submit" name="acao" value="Salvar">
+                    <input type="hidden" name="atualizar" value="atualizar">
                 </form>
 
             </div><!-- perfil_edition -->

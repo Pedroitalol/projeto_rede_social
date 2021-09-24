@@ -29,7 +29,7 @@ section.perfil_container{
 
 .perfil{
     /* display: flex; */
-    padding: 20px;
+    padding: 40px;
     width: 80%;
     overflow-y: auto;
 }
@@ -60,6 +60,11 @@ section.perfil_container{
 .perfil_edition{
     background-color: white;
     padding: 20px;
+    width: 100%;
+}
+
+.perfil_edition img{
+    max-width: 200px;
     width: 100%;
 }
 

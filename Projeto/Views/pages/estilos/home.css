@@ -29,7 +29,7 @@ section.feed_container{
 
 .feed{
     display: flex;
-    padding: 50px;
+    padding: 40px;
     width: 80%;
     overflow-y: auto;
 }
