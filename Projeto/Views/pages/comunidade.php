@@ -82,7 +82,14 @@
 						?>
 						<div class="container_comunidade_single">
 							<div class="img_comunidade_user_single">
+								<?php
+									if($value["img"] == ""){
+								?>
 								<img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" />
+
+								<?php }else{ ?>
+									<img src="<?php echo INCLUDE_PATH ?>uploads/<?php echo $value["img"] ?>" />
+								<?php } ?>
 							</div><!-- img_comunidade_user_single -->
 							
 							<div class="info_comunidade_user_single">

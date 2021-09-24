@@ -28,8 +28,8 @@
 
                 }else{
                     $senha = \Projeto\Bcrypt::hash($senha);
-                    $registro = \Projeto\MySql::connect()->prepare("INSERT INTO usuarios VALUES (null, ?, ?, ?, '')");
-                    $registro->execute(array($nome, $email, $senha));
+                    $registro = \Projeto\MySql::connect()->prepare("INSERT INTO usuarios VALUES (null, ?, ?, ?, ?, ?)");
+                    $registro->execute(array($nome, $email, $senha, "", ""));
 
                     \Projeto\Utilidades::alerta("Registrado com sucesso!");
                     \Projeto\Utilidades::redirect(INCLUDE_PATH);

@@ -104,7 +104,21 @@
                 ?>
                 
                 <div class="friends_one_request">
-                    <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/foto_perfil.jpg" alt="Foto de perfil" >
+                    <?php
+                        if(!isset($value["me"]) && $usuarioInfo["img"] == ""){
+                    ?>
+                    <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" alt="Foto de perfil" >
+                    <?php }else if(!isset($value["me"])){ ?>
+                    <img src="<?php echo INCLUDE_PATH ?>uploads/<?php echo $usuarioInfo['img'] ?>" alt="Foto de perfil" >
+                    <?php } ?>
+
+                    <?php
+                        if(isset($value["me"]) && $_SESSION["img"] == ""){
+                    ?>
+                    <img src="<?php echo INCLUDE_PATH_STATIC ?>imgs/avatar.jpg" alt="Foto de perfil" >
+                    <?php }else if(isset($value["me"])){ ?>
+                    <img src="<?php echo INCLUDE_PATH ?>uploads/<?php echo $_SESSION['img'] ?>" alt="Foto de perfil" >
+                    <?php } ?>
                     <div class="friends_one_request_info">
                         <h4><?php echo $usuarioInfo["nome"] ?></h4>
                         <p> <a href="<?php echo INCLUDE_PATH ?>?aceitarAmizade=<?php
