@@ -1,2 +1,2 @@
 # projeto_rede_social
-Projeto de uma rede social simples usando PHP.
+Uma rede social simples, usando PHP, com arquitetura MVC. Consiste em uma rede social no qual os usuários podem fazer o cadastro de uma ou mais contas, apenas uma por cada e-mail válido. e ao entrar na conta cadastrada, é possível ver a ultima postagem de cada amigo na página inicial. Além da página inicial, possui mais duas página, uma para editar o perfil do usuário e outro para listar os amigos e todas as contas que estão cadastradas. Os dados são cadastrados em tabelas em um banco de dados do MySql. O projeto foi feito com auxílio do xammp, para iniciar o apache e o MySql.
